@@ -1,0 +1,244 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Disable responsive design - make website look identical on all devices */
+html {
+  font-size: 16px !important;
+  zoom: 1 !important;
+  -webkit-text-size-adjust: none !important;
+  -moz-text-size-adjust: none !important;
+  -ms-text-size-adjust: none !important;
+  text-size-adjust: none !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+body {
+  min-width: 1200px !important;
+  width: 100% !important;
+  overflow-x: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Disable all responsive breakpoints and force desktop layout */
+@media (max-width: 640px), (max-width: 768px), (max-width: 1024px), (max-width: 1280px), (max-width: 1536px) {
+  /* Force all responsive text sizes to desktop values */
+  .sm\:text-sm, .md\:text-sm, .lg\:text-sm, .xl\:text-sm { font-size: 1rem !important; }
+  .sm\:text-base, .md\:text-base, .lg\:text-base, .xl\:text-base { font-size: 1rem !important; }
+  .sm\:text-lg, .md\:text-lg, .lg\:text-lg, .xl\:text-lg { font-size: 1.125rem !important; }
+  .sm\:text-xl, .md\:text-xl, .lg\:text-xl, .xl\:text-xl { font-size: 1.25rem !important; }
+  .sm\:text-2xl, .md\:text-2xl, .lg\:text-2xl, .xl\:text-2xl { font-size: 1.5rem !important; }
+  .sm\:text-3xl, .md\:text-3xl, .lg\:text-3xl, .xl\:text-3xl { font-size: 1.875rem !important; }
+  .sm\:text-4xl, .md\:text-4xl, .lg\:text-4xl, .xl\:text-4xl { font-size: 2.25rem !important; }
+  
+  /* Force all responsive padding to desktop values */
+  .sm\:p-4, .md\:p-4, .lg\:p-4, .xl\:p-4 { padding: 1rem !important; }
+  .sm\:p-6, .md\:p-6, .lg\:p-6, .xl\:p-6 { padding: 1.5rem !important; }
+  .sm\:p-8, .md\:p-8, .lg\:p-8, .xl\:p-8 { padding: 2rem !important; }
+  
+  /* Force all responsive margins to desktop values */
+  .sm\:mb-4, .md\:mb-4, .lg\:mb-4, .xl\:mb-4 { margin-bottom: 1rem !important; }
+  .sm\:mb-6, .md\:mb-6, .lg\:mb-6, .xl\:mb-6 { margin-bottom: 1.5rem !important; }
+  .sm\:mb-8, .md\:mb-8, .lg\:mb-8, .xl\:mb-8 { margin-bottom: 2rem !important; }
+  
+  /* Force all responsive gaps to desktop values */
+  .sm\:gap-2, .md\:gap-2, .lg\:gap-2, .xl\:gap-2 { gap: 0.5rem !important; }
+  .sm\:gap-3, .md\:gap-3, .lg\:gap-3, .xl\:gap-3 { gap: 0.75rem !important; }
+  .sm\:gap-4, .md\:gap-4, .lg\:gap-4, .xl\:gap-4 { gap: 1rem !important; }
+  .sm\:gap-6, .md\:gap-6, .lg\:gap-6, .xl\:gap-6 { gap: 1.5rem !important; }
+  .sm\:gap-8, .md\:gap-8, .lg\:gap-8, .xl\:gap-8 { gap: 2rem !important; }
+  
+  /* Force all responsive sizes to desktop values */
+  .sm\:w-24, .md\:w-24, .lg\:w-24, .xl\:w-24 { width: 6rem !important; }
+  .sm\:h-24, .md\:h-24, .lg\:h-24, .xl\:h-24 { height: 6rem !important; }
+  .sm\:w-32, .md\:w-32, .lg\:w-32, .xl\:w-32 { width: 8rem !important; }
+  .sm\:h-32, .md\:h-32, .lg\:h-32, .xl\:h-32 { height: 8rem !important; }
+  .sm\:w-40, .md\:w-40, .lg\:w-40, .xl\:w-40 { width: 10rem !important; }
+  .sm\:h-40, .md\:h-40, .lg\:h-40, .xl\:h-40 { height: 10rem !important; }
+  
+  /* Force all responsive heights to desktop values */
+  .sm\:h-2, .md\:h-2, .lg\:h-2, .xl\:h-2 { height: 0.5rem !important; }
+  .sm\:h-3, .md\:h-3, .lg\:h-3, .xl\:h-3 { height: 0.75rem !important; }
+  
+  /* Force grid layouts to stay as desktop */
+  .grid-cols-1, .sm\:grid-cols-1, .md\:grid-cols-1, .lg\:grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+  .md\:grid-cols-2, .lg\:grid-cols-2, .xl\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .lg\:grid-cols-3, .xl\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  
+  /* Force flex layouts to stay as desktop */
+  .flex-col, .sm\:flex-col, .md\:flex-col, .lg\:flex-col { flex-direction: column !important; }
+  .flex-row, .sm\:flex-row, .md\:flex-row, .lg\:flex-row { flex-direction: row !important; }
+  
+  /* Force justify and align to stay as desktop */
+  .justify-center, .sm\:justify-center, .md\:justify-center, .lg\:justify-center { justify-content: center !important; }
+  .justify-between, .sm\:justify-between, .md\:justify-between, .lg\:justify-between { justify-content: space-between !important; }
+  .items-center, .sm\:items-center, .md\:items-center, .lg\:items-center { align-items: center !important; }
+  
+  /* Force text alignment to stay as desktop */
+  .text-center, .sm\:text-center, .md\:text-center, .lg\:text-center { text-align: center !important; }
+  .text-left, .sm\:text-left, .md\:text-left, .lg\:text-left { text-align: left !important; }
+  
+  /* Force display properties to stay as desktop */
+  .block, .sm\:block, .md\:block, .lg\:block { display: block !important; }
+  .flex, .sm\:flex, .md\:flex, .lg\:flex { display: flex !important; }
+  .grid, .sm\:grid, .md\:grid, .lg\:grid { display: grid !important; }
+  
+  /* Force text sizes to stay as desktop */
+  .text-xs { font-size: 0.75rem !important; }
+  .text-sm { font-size: 0.875rem !important; }
+  .text-base { font-size: 1rem !important; }
+  .text-lg { font-size: 1.125rem !important; }
+  .text-xl { font-size: 1.25rem !important; }
+  .text-2xl { font-size: 1.5rem !important; }
+  .text-3xl { font-size: 1.875rem !important; }
+  .text-4xl { font-size: 2.25rem !important; }
+  
+  /* Force padding and margins to stay as desktop */
+  .p-4 { padding: 1rem !important; }
+  .p-6 { padding: 1.5rem !important; }
+  .p-8 { padding: 2rem !important; }
+  .mb-4 { margin-bottom: 1rem !important; }
+  .mb-6 { margin-bottom: 1.5rem !important; }
+  .mb-8 { margin-bottom: 2rem !important; }
+  
+  /* Force sizes to stay as desktop */
+  .w-24 { width: 6rem !important; }
+  .h-24 { height: 6rem !important; }
+  .w-32 { width: 8rem !important; }
+  .h-32 { height: 8rem !important; }
+  .w-40 { width: 10rem !important; }
+  .h-40 { height: 10rem !important; }
+  
+  /* Force gap to stay as desktop */
+  .gap-2 { gap: 0.5rem !important; }
+  .gap-3 { gap: 0.75rem !important; }
+  .gap-4 { gap: 1rem !important; }
+  .gap-6 { gap: 1.5rem !important; }
+  .gap-8 { gap: 2rem !important; }
+  
+  /* Force height to stay as desktop */
+  .h-2 { height: 0.5rem !important; }
+  .h-3 { height: 0.75rem !important; }
+}
